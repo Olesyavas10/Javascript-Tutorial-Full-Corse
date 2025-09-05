@@ -71,7 +71,7 @@
         return count;
       };
       console.log(countPositive([1, -2, 3, 4, -5, 6]));
-       */
+
 
       const minMax = (nums) => {
         const obj = {
@@ -112,6 +112,107 @@
       console.log(
         countWord(["apple", "banana", "apple", "orange", "banana", "apple"])
       );
+      const array1 = [1, 2, 3];
+      const array2 = array1; // reference copy
+      const array3 = [...array1]; // value copy или
+      array2.push(4);
+      console.log(array1); // [1, 2, 3, 4]
+      console.log(array2); // [1, 2, 3, 4]
+      console.log(array3); // [1, 2, 3]
+      const [firstValue, secondValue] = [1, 2, 3];
+      for (let i = 1; i <= 10; i++) {
+        if (i%3===0) continue; // пропускает все кратные 3
+        console.log(i);
+        if (i === 8) break; // прерывает цикл
+      }
+
+      let i=1;
+      while(i<=10){
+        if (i%3===0) {
+          i++; //dля while нужно инкремент делать до
+          continue;
+        } // пропускает все кратные 3
+        console.log(i);
+        i++;
+      } //from 1 to 10 again
+
+      
+
+      const checkArray = (strings) => {
+        for (let i = 0; i < strings.length; i++) {
+          if (strings[i] === "search") {
+            return i;
+          }
+        }
+        return -1;
+      };
+      //console.log(checkArray(["hello", "world", "search", "good"]));
+      console.log(checkArray(["hello", "world", "search", "good", "search"]));
+
+      const findIndex = (array, word) => {
+        for (let i = 0; i < array.length; i++) {
+          if (array[i] === word) {
+            return i;
+          }
+        }
+        return -1;
+      };
+      console.log(findIndex(["green", "red", "blue", "red"], "red")); 
+
+      const removeEgg = (foods) => {
+        let countEgg = 0;
+        const result = [];
+        const newFoods = [...foods].reverse();
+
+        for (let i = 0; i < foods.length; i++) {
+          if (newFoods[i] === "egg" && countEgg < 2) {
+            countEgg++;
+            continue;
+          } else result.push(newFoods[i]);
+        }
+
+        return result.reverse();
+      };
+
+      const foods = ["egg", "apple", "egg", "egg", "ham"];
+      console.log(removeEgg(foods)); // ['egg', 'apple', 'ham']
+      console.log(foods); // ['egg', 'apple', 'egg', 'egg', 'ham']
+     
+
+      for (let i = 1; i < 21; i++) {
+        if (i % 15 === 0) {
+          console.log("FizzBuzz");
+        } else if (i % 3 === 0) {
+          console.log("Fizz");
+        } else if (i % 5 === 0) {
+          console.log("Buzz");
+        } else {
+          console.log(i);
+        }
+      }  */
+
+      const findIndex = (array, word) => {
+        const countWord = 0;
+        for (let i = 0; i < array.length; i++) {
+          if (array[i] === word) {
+            return i;
+          }
+        }
+        return -1;
+      };
+
+      const unique = (array) => {
+        const newArr = [];
+        for (let i = 0; i < array.length; i++) {
+          const word = array[i];
+          //действуем от обратного. записываем все слова и если оно уже есть в записи второй раз оно не записывается
+          if (findIndex(newArr, word) === -1) {
+            newArr.push(word);
+          }
+        }
+        return newArr;
+      };
+      console.log(unique(["apple", "grape", "apple", "pear", "grape"]));
     </script>
   </body>
 </html>
